@@ -24,8 +24,8 @@ export const contacts = [
   },
   {
     label: "Discord",
-    value: "",
-    href: "",
+    value: "sunshine9390",
+    href: "https://discord.com/users/sunshine9390",
   },
   {
     label: "Telegram",

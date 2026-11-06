@@ -62,19 +62,25 @@ export default function Home() {
           className="mt-8 flex flex-wrap gap-x-5 gap-y-2 lg:mt-auto lg:flex-col lg:gap-3"
         >
           {contacts
-            .filter((item) => item.href)
-            .map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-sm text-foreground/80 transition-colors hover:text-primary"
-                {...(item.href.startsWith("http")
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-              >
-                {item.label}
-              </a>
-            ))}
+            .filter((item) => item.href || item.value)
+            .map((item) =>
+              item.href ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-sm text-foreground/80 transition-colors hover:text-primary"
+                  {...(item.href.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <a key={item.label} href="#contact" className="text-sm text-foreground/80 transition-colors hover:text-primary">
+                  {item.label}
+                </a>
+              ),
+            )}
         </nav>
       </Reveal>
 
@@ -256,6 +262,8 @@ export default function Home() {
                   >
                     {item.value}
                   </a>
+                ) : item.value ? (
+                  <span className="text-sm text-foreground">{item.value}</span>
                 ) : (
                   <span className="text-sm text-muted-foreground">—</span>
                 )}
