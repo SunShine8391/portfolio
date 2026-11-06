@@ -11,7 +11,11 @@ export const profile = {
     "Recent work centers on Next.js and NestJS, with TypeScript on both sides of the stack. I have led front-end teams, cut waste out of data fetching, and shipped realtime features without letting the codebase get brittle.",
 } as const;
 
-export const contacts = [
+export const contacts: readonly {
+  label: string;
+  value: string;
+  href: string;
+}[] = [
   {
     label: "Email",
     value: profile.email,
@@ -37,7 +41,7 @@ export const contacts = [
     value: "View profile",
     href: "https://www.upwork.com/freelancers/~01f9fb861bb8aadd03",
   },
-] as const;
+];
 
 export const outcomes = [
   {
