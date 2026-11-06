@@ -136,6 +136,49 @@ export const experience = [
   },
 ] as const;
 
+export const projects = [
+  {
+    name: "NJPropertyRecords",
+    href: "https://njpropertyrecords.com/",
+    image: "/projects/nj-property-records.jpg",
+    imageWidth: 1024,
+    imageHeight: 509,
+    alt: "NJPropertyRecords homepage, with property search and a sample record for 21 Tamarack Drive in Rockaway.",
+    overview:
+      "NJPropertyRecords, LLC is a leading provider of real estate information for New Jersey. The product is known for extensive, up-to-date property data that appraisers, engineers, investors, real estate agents, government agencies, and others can use in one place — detailed, fast, and easy to reach.",
+  },
+  {
+    name: "Taostats",
+    href: "https://taostats.io/",
+    image: "/projects/taostats.jpg",
+    imageWidth: 1024,
+    imageHeight: 510,
+    alt: "Taostats homepage, with the TAO price chart and Bittensor blockchain search.",
+    overview:
+      "Taostats is the explorer and analytics site for the Bittensor network. It puts the TAO price, market data, subnets, validators, and on-chain search in one place.",
+  },
+  {
+    name: "Yolohealth",
+    href: "https://yolohealth.in/",
+    image: "/projects/yolohealth.jpg",
+    imageWidth: 1024,
+    imageHeight: 640,
+    alt: "Yolohealth dashboard, with appointments, weight-loss progress, and squad activity.",
+    overview:
+      "Yolohealth is a telehealth platform for appointments, prescriptions, and progress tracking. Patients, coaches, and doctors share calls, care updates, and goals from one dashboard.",
+  },
+  {
+    name: "StoreListing",
+    href: "https://www.storelistings.com/",
+    image: "/projects/storelisting.jpg",
+    imageWidth: 1024,
+    imageHeight: 509,
+    alt: "StoreListing homepage, with creative work for Clearstay and PawPal.",
+    overview:
+      "StoreListing presents creative services built to convert: scroll-stopping videos, playables, and user-generated content tailored for performance outcomes.",
+  },
+] as const;
+
 export const skillGroups = [
   {
     label: "Interface",

@@ -1,6 +1,8 @@
 import { ContactLinks } from "@/components/contact-links";
+import { ExpandableText } from "@/components/expandable-text";
 import { Reveal } from "@/components/reveal";
 import { SkillBadges } from "@/components/skill-badges";
+import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -17,10 +19,12 @@ import {
   languages,
   outcomes,
   profile,
+  projects,
   skillGroups,
 } from "@/lib/profile";
 
 const nav = [
+  { href: "#projects", label: "Projects" },
   { href: "#work", label: "Work" },
   { href: "#skills", label: "Skills" },
   { href: "#background", label: "Background" },
@@ -101,6 +105,70 @@ export default function Home() {
               </Card>
             </Reveal>
           ))}
+        </section>
+
+        <section id="projects" className="mt-20 scroll-mt-8" aria-labelledby="projects-heading">
+          <div className="flex items-end justify-between gap-4">
+            <h2 id="projects-heading" className="font-heading text-3xl tracking-tight">
+              Projects
+            </h2>
+            <p className="font-mono text-xs tracking-[0.16em] text-muted-foreground uppercase">
+              Selected
+            </p>
+          </div>
+          <Separator className="mt-4" />
+          <ol className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2">
+            {projects.map((project) => (
+              <Reveal as="li" key={project.name}>
+                <article>
+                  {"href" in project ? (
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${project.name} website`}
+                      className="block"
+                    >
+                      <figure className="group relative aspect-[2/1] overflow-hidden rounded-lg bg-background">
+                        <Image
+                          src={project.image}
+                          alt=""
+                          fill
+                          sizes="(max-width: 640px) 100vw, 380px"
+                          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                        />
+                      </figure>
+                    </a>
+                  ) : (
+                    <figure className="group relative aspect-[2/1] overflow-hidden rounded-lg bg-background">
+                      <Image
+                        src={project.image}
+                        alt={project.alt}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 380px"
+                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                      />
+                    </figure>
+                  )}
+                  <h3 className="mt-4 text-lg font-medium tracking-tight">
+                    {"href" in project ? (
+                      <a
+                        href={project.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="transition-colors hover:text-primary"
+                      >
+                        {project.name}
+                      </a>
+                    ) : (
+                      project.name
+                    )}
+                  </h3>
+                  <ExpandableText text={project.overview} />
+                </article>
+              </Reveal>
+            ))}
+          </ol>
         </section>
 
         <section id="work" className="mt-20 scroll-mt-8" aria-labelledby="work-heading">
