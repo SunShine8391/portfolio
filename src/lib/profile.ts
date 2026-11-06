@@ -27,6 +27,11 @@ export const contacts: readonly {
     href: "",
   },
   {
+    label: "GitHub",
+    value: "SunShine8391",
+    href: "https://github.com/SunShine8391",
+  },
+  {
     label: "Discord",
     value: "sunshine9390",
     href: "https://discord.com/users/sunshine9390",
