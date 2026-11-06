@@ -121,48 +121,32 @@ export default function Home() {
             {projects.map((project) => (
               <Reveal as="li" key={project.name}>
                 <article>
-                  {"href" in project ? (
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${project.name} website`}
-                      className="block"
-                    >
-                      <figure className="group relative aspect-[2/1] overflow-hidden rounded-lg bg-background">
-                        <Image
-                          src={project.image}
-                          alt=""
-                          fill
-                          sizes="(max-width: 640px) 100vw, 380px"
-                          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-                        />
-                      </figure>
-                    </a>
-                  ) : (
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${project.name} website`}
+                    className="block"
+                  >
                     <figure className="group relative aspect-[2/1] overflow-hidden rounded-lg bg-background">
                       <Image
                         src={project.image}
-                        alt={project.alt}
+                        alt=""
                         fill
                         sizes="(max-width: 640px) 100vw, 380px"
                         className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                       />
                     </figure>
-                  )}
+                  </a>
                   <h3 className="mt-4 text-lg font-medium tracking-tight">
-                    {"href" in project ? (
-                      <a
-                        href={project.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="transition-colors hover:text-primary"
-                      >
-                        {project.name}
-                      </a>
-                    ) : (
-                      project.name
-                    )}
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="transition-colors hover:text-primary"
+                    >
+                      {project.name}
+                    </a>
                   </h3>
                   <ExpandableText text={project.overview} />
                 </article>

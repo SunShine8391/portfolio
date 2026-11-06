@@ -1,4 +1,5 @@
 import { MotionProvider } from "@/components/motion-provider";
+import { ParticleSphere } from "@/components/particle-sphere";
 import { profile } from "@/lib/profile";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
@@ -32,8 +33,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${instrument.variable} dark h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <MotionProvider>{children}</MotionProvider>
+      <body className="flex min-h-full flex-col">
+        <ParticleSphere />
+        <div className="relative z-10 flex min-h-full flex-1 flex-col">
+          <MotionProvider>{children}</MotionProvider>
+        </div>
       </body>
     </html>
   );
