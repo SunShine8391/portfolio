@@ -15,36 +15,43 @@ export const contacts: readonly {
   label: string;
   value: string;
   href: string;
+  icon: "mail" | "linkedin" | "github" | "discord" | "telegram" | "upwork";
 }[] = [
   {
     label: "Email",
     value: profile.email,
     href: `mailto:${profile.email}`,
+    icon: "mail",
   },
   {
     label: "LinkedIn",
     value: "",
     href: "",
+    icon: "linkedin",
   },
   {
     label: "GitHub",
     value: "SunShine8391",
     href: "https://github.com/SunShine8391",
+    icon: "github",
   },
   {
     label: "Discord",
     value: "sunshine9390",
     href: "https://discord.com/users/sunshine9390",
+    icon: "discord",
   },
   {
     label: "Telegram",
     value: "@Chris3180",
     href: "https://t.me/Chris3180",
+    icon: "telegram",
   },
   {
     label: "Upwork",
     value: "View profile",
     href: "https://www.upwork.com/freelancers/~01f9fb861bb8aadd03",
+    icon: "upwork",
   },
 ];
 

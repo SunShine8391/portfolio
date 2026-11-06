@@ -1,3 +1,4 @@
+import { ContactLinks } from "@/components/contact-links";
 import { Reveal } from "@/components/reveal";
 import { SkillBadges } from "@/components/skill-badges";
 import {
@@ -15,7 +16,6 @@ import {
   interests,
   languages,
   outcomes,
-  contacts,
   profile,
   skillGroups,
 } from "@/lib/profile";
@@ -57,30 +57,8 @@ export default function Home() {
           ))}
         </nav>
 
-        <nav
-          aria-label="Contact"
-          className="mt-8 flex flex-wrap gap-x-5 gap-y-2 lg:mt-auto lg:flex-col lg:gap-3"
-        >
-          {contacts
-            .filter((item) => item.href || item.value)
-            .map((item) =>
-              item.href ? (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="text-sm text-foreground/80 transition-colors hover:text-primary"
-                  {...(item.href.startsWith("http")
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <a key={item.label} href="#contact" className="text-sm text-foreground/80 transition-colors hover:text-primary">
-                  {item.label}
-                </a>
-              ),
-            )}
+        <nav aria-label="Contact" className="mt-8 lg:mt-auto">
+          <ContactLinks />
         </nav>
       </Reveal>
 
@@ -246,30 +224,7 @@ export default function Home() {
           </p>
           </Reveal>
           <Reveal delay={0.08}>
-          <ul className="mt-6 divide-y divide-border border-y border-border">
-            {contacts.map((item) => (
-              <li key={item.label} className="flex items-baseline justify-between gap-6 py-3">
-                <span className="font-mono text-xs tracking-[0.16em] text-muted-foreground uppercase">
-                  {item.label}
-                </span>
-                {item.href ? (
-                  <a
-                    href={item.href}
-                    className="text-sm text-foreground transition-colors hover:text-primary"
-                    {...(item.href.startsWith("http")
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
-                  >
-                    {item.value}
-                  </a>
-                ) : item.value ? (
-                  <span className="text-sm text-foreground">{item.value}</span>
-                ) : (
-                  <span className="text-sm text-muted-foreground">—</span>
-                )}
-              </li>
-            ))}
-          </ul>
+            <ContactLinks className="mt-6" />
           </Reveal>
         </section>
 
